@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  hyperf:
+    image: $REGISTRY_URL/$PROJECT_NAME:master
+    environment:
+      - "APP_PROJECT=后台服务端"
+      - "APP_ENV=production"
+    ports:
+      - 9999:9999
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 5
+      update_config:
+        parallelism: 2
+        delay: 5s
+        order: start-first
+    networks:
+      - network
+    configs:
+      - source: v103
+        target: /opt/www/.env
+configs:
+  v103:
+    external: true
+networks:
+  network:
+    external: true
