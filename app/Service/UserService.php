@@ -199,6 +199,7 @@ class UserService extends Base
             ['label' => '新宝博支付', 'value' => 'JasonBagPay'],
             ['label' => 'dsedPay', 'value' => 'dsedPay'],
             ['label' => 'ShineUPay', 'value' => 'ShineUPay'],
+            ['label' => 'SeproPay', 'value' => 'SeproPay'],
             ['label' => '手动代付', 'value' => 'null'],
         ];
 

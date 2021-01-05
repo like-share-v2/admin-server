@@ -15,6 +15,7 @@ use App\Kernel\Payment\DSEDPay;
 use App\Kernel\Payment\HZPay;
 use App\Kernel\Payment\JasonBagPay;
 use App\Kernel\Payment\LinkPay;
+use App\Kernel\Payment\SeproPay;
 use App\Kernel\Payment\ShineUPay;
 use App\Kernel\Payment\YT2Pay;
 use App\Kernel\Payment\YTPay;
@@ -207,6 +208,17 @@ class UserWithdrawalService extends Base
                                 $defray->bank_account,
                                 $defray->name,
                                 $defray->bank_code
+                            );
+                            break;
+
+                        case 'SeproPay':
+                            $this->container->get(SeproPay::class)->payout(
+                                $defray->order_no,
+                                $defray->amount,
+                                $defray->bank_account,
+                                $defray->name,
+                                $defray->bank_code,
+                                $defray->ifsc
                             );
                             break;
 
