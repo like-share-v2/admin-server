@@ -4,7 +4,7 @@ declare (strict_types=1);
 /**
  * @copyright
  * @version   1.0.0
- * @link      https://dayiguo.com
+ * @link
  */
 
 namespace App\Service;
@@ -19,6 +19,7 @@ use App\Kernel\Payment\SeproPay;
 use App\Kernel\Payment\ShineUPay;
 use App\Kernel\Payment\YT2Pay;
 use App\Kernel\Payment\YTPay;
+use App\Kernel\Payment\YZPay;
 use App\Kernel\Utils\JwtInstance;
 use App\Service\DAO\DefrayDAO;
 use App\Service\DAO\MemberDAO;
@@ -219,6 +220,17 @@ class UserWithdrawalService extends Base
                                 $defray->name,
                                 $defray->bank_code,
                                 $defray->ifsc
+                            );
+                            break;
+
+                        case 'YZPay':
+                            $this->container->get(YZPay::class)->payout(
+                                $defray->order_no,
+                                $defray->amount,
+                                $defray->bank_account,
+                                $defray->name,
+                                $defray->bank_code,
+                                $defray->phone
                             );
                             break;
 

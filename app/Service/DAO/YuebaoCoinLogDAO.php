@@ -3,7 +3,7 @@ declare (strict_types=1);
 /**
  * @copyright
  * @version   1.0.0
- * @link      https://dayiguo.com
+ * @link
  */
 
 namespace App\Service\DAO;

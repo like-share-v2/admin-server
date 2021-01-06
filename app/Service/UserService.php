@@ -200,6 +200,7 @@ class UserService extends Base
             ['label' => 'dsedPay', 'value' => 'dsedPay'],
             ['label' => 'ShineUPay', 'value' => 'ShineUPay'],
             ['label' => 'SeproPay', 'value' => 'SeproPay'],
+            ['label' => '亚洲支付', 'value' => 'YZPay'],
             ['label' => '手动代付', 'value' => 'null'],
         ];
 

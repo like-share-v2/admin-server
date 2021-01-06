@@ -2,7 +2,7 @@
 /**
  * @copyright
  * @version 1.0.0
- * @link https://dayiguo.com
+ * @link
  */
 
 namespace App\Kernel\Payment;
