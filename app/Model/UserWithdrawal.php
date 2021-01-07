@@ -5,6 +5,7 @@ declare (strict_types=1);
 namespace App\Model;
 
 use Hyperf\Database\Model\Relations\BelongsTo;
+use Hyperf\Database\Model\Relations\HasOne;
 
 /**
  * 用户提现模型
@@ -79,5 +80,13 @@ class UserWithdrawal extends Model
     public function country()
     {
         return $this->belongsTo(Country::class, 'country_id', 'id');
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function defer(): HasOne
+    {
+        return $this->hasOne(Defray::class, 'withdrawal_id');
     }
 }

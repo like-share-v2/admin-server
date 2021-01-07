@@ -29,7 +29,7 @@ class UserWithdrawalDAO extends Base
      */
     public function get(array $params)
     {
-        $model = UserWithdrawal::query()->with(['user:id,account,nickname,phone', 'country:id,name']);
+        $model = UserWithdrawal::query()->with(['user:id,account,nickname,phone', 'country:id,name', 'defer:id,withdrawal_id,channel,order_no']);
 
         if (isset($params['user_id'])) {
             $model->where('user_id', $params['user_id']);
