@@ -107,7 +107,7 @@ class UserWithdrawalService extends Base
                         'order_no'      => (string)$this->container->get(IdGeneratorInterface::class)->generate(),
                         'admin_id'      => JwtInstance::instance()->build()->getId(),
                         'channel'       => $params['pay_channel'],
-                        'amount'        => $user_withdrawal->amount - $user_withdrawal->service_charge,
+                        'amount'        => $user_withdrawal->amount - $user_withdrawal->service_charge * $user_withdrawal->amount,
                         'name'          => $user_withdrawal->name,
                         'bank_account'  => $user_withdrawal->account,
                         'bank_name'     => $user_withdrawal->bank_name,
