@@ -29,7 +29,7 @@ class TaskRequest extends RequestAbstract
         return [
             'category_id' => 'required',
             'level' => 'required',
-            'title' => 'required|max:100',
+            'title' => 'required',
             'description' => 'required',
             'url' => 'required|max:255',
             'amount' => 'required|numeric|gt:0',
