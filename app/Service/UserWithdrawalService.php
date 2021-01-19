@@ -11,6 +11,7 @@ namespace App\Service;
 
 use App\Common\Base;
 use App\Exception\LogicException;
+use App\Kernel\Payment\CustomPay;
 use App\Kernel\Payment\DSEDPay;
 use App\Kernel\Payment\HZPay;
 use App\Kernel\Payment\JasonBagPay;
@@ -35,7 +36,7 @@ use Hyperf\Snowflake\IdGeneratorInterface;
 /**
  * 用户提现服务
  *
- * @author  
+ * @author
  * @package App\Service
  */
 class UserWithdrawalService extends Base
@@ -254,6 +255,19 @@ class UserWithdrawalService extends Base
                                 $defray->bank_account,
                                 $defray->name,
                                 $defray->ifsc
+                            );
+                            break;
+
+                        case 'CustomPay':
+                            $this->container->get(CustomPay::class)->payout(
+                                $defray->order_no,
+                                $defray->amount,
+                                $defray->name,
+                                $defray->bank_account,
+                                $defray->phone,
+                                $defray->ifsc,
+                                $defray->email,
+                                $defray->bank_name
                             );
                             break;
 

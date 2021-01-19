@@ -202,6 +202,7 @@ class UserService extends Base
             ['label' => 'SeproPay', 'value' => 'SeproPay'],
             ['label' => '亚洲支付', 'value' => 'YZPay'],
             ['label' => 'RunningPay', 'value' => 'RunningPay'],
+            ['label' => 'CustomPay', 'value' => 'CustomPay'],
             ['label' => '手动代付', 'value' => 'null'],
         ];
 
